@@ -1,0 +1,15 @@
+C:\Users\Clifford\source\repos\Capstone Project\bin\Debug\Capstone Project.exe.config
+C:\Users\Clifford\source\repos\Capstone Project\bin\Debug\Capstone Project.exe
+C:\Users\Clifford\source\repos\Capstone Project\bin\Debug\Capstone Project.pdb
+C:\Users\Clifford\source\repos\Capstone Project\bin\Debug\Capstone Project.xml
+C:\Users\Clifford\source\repos\Capstone Project\bin\Debug\Guna.UI2.dll
+C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone Project.vbproj.AssemblyReference.cache
+C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone_Project.FrmMain.resources
+C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone_Project.Resources.resources
+C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone Project.vbproj.GenerateResource.cache
+C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone Project.vbproj.CoreCompileInputs.cache
+C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone Project.vbproj.CopyComplete
+C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone Project.exe
+C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone Project.xml
+C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone Project.pdb
+C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone_Project.FrmMaintenance.resources
