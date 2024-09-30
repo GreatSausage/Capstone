@@ -13,3 +13,5 @@ C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone Project.exe
 C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone Project.xml
 C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone Project.pdb
 C:\Users\Clifford\source\repos\Capstone Project\obj\Debug\Capstone_Project.FrmMaintenance.resources
+C:\Users\Clifford\source\repos\Capstone Project\bin\Debug\MySql.Data.dll
+C:\Users\Clifford\source\repos\Capstone Project\bin\Debug\MySql.Data.xml
