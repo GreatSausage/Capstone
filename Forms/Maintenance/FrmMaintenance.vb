@@ -7,6 +7,9 @@ Public Class FrmMaintenance
         Dim dtIncentive As DataTable = DisplayIncentives()
         Dim dtAllowance As DataTable = DisplayAllowance()
         Dim dtLeave As DataTable = DisplayLeave()
+        Dim dtTax As DataTable = DisplayTax()
+        Dim dtSSS As DataTable = DisplaySSS()
+        Dim dtPagibig As DataTable = DisplayPagIbig()
         dgDepartment.DataSource = dtDepartment
         DgPosition.DataSource = dtPosition
         DgIncentives.DataSource = dtIncentive
@@ -14,19 +17,14 @@ Public Class FrmMaintenance
         dgManageAllowance.DataSource = dtAllowance
         dgLeave.DataSource = dtLeave
         dgManageLeave.DataSource = dtLeave
-        cbDepartment.DataSource = dtDepartment
-        cbDepartment.ValueMember = "departmentID"
-        cbDepartment.DisplayMember = "departmentName"
-        cbDepartment.SelectedIndex = 0
-        cbDepartmentTwo.DataSource = dtDepartment
-        cbDepartmentTwo.DisplayMember = "departmentName"
-        cbDepartmentTwo.ValueMember = "departmentID"
-        cbDepartmentTwo.SelectedIndex = 0
-        cbPosition.DataSource = dtPosition
-        cbPosition.ValueMember = "positionID"
-        cbPosition.DisplayMember = "positionName"
-        cbPosition.SelectedIndex = 0
+        dgTaxContri.DataSource = dtTax
+        dgSSSContri.DataSource = dtSSS
+        dgPagibigContri.DataSource = dtPagibig
 
+        Dim maxSalary As Decimal = TaxGetMaxSalary()
+        txtTaxMinSalary.Text = maxSalary
+        Dim maxSalarySSS As Decimal = SSSGetMaxSalary()
+        txtSSSMinSalary.Text = maxSalarySSS
     End Sub
 
     Private Sub BtnSaveDepartment_Click(sender As Object, e As EventArgs) Handles BtnSaveDepartment.Click
@@ -62,6 +60,8 @@ Public Class FrmMaintenance
             NewPosition(txtPosition.Text, departmentID)
             Dim dtPosition As DataTable = DisplayPosition()
             DgPosition.DataSource = dtPosition
+            txtPosition.Clear()
+            cbDepartment.SelectedIndex = 0
         End If
     End Sub
 
@@ -76,6 +76,7 @@ Public Class FrmMaintenance
             NewIncentives(txtIncentive.Text)
             Dim dtIncentives As DataTable = DisplayIncentives()
             DgIncentives.DataSource = dtIncentives
+            txtIncentive.Clear()
         End If
     End Sub
 
@@ -90,6 +91,7 @@ Public Class FrmMaintenance
             NewAllowance(txtAllowance.Text)
             Dim dtAllowance As DataTable = DisplayAllowance()
             DgAllowance.DataSource = dtAllowance
+            txtAllowance.Clear()
         End If
     End Sub
 
@@ -104,10 +106,80 @@ Public Class FrmMaintenance
             NewLeave(txtLeave.Text)
             Dim dtLeave As DataTable = DisplayLeave()
             dgLeave.DataSource = dtLeave
+            txtLeave.Clear()
         End If
     End Sub
 
     Private Sub BtnSaveTax_Click(sender As Object, e As EventArgs) Handles BtnSaveTax.Click
+        If String.IsNullOrEmpty(txtTaxMinSalary.Text) OrElse
+           String.IsNullOrEmpty(txtTaxMinSalary.Text) OrElse
+           String.IsNullOrEmpty(txtTaxFixed.Text) OrElse
+           String.IsNullOrEmpty(txtTaxPercentage.Text) Then
+            MessageBox.Show("Please fill in the necessary fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        ElseIf Not Regex.IsMatch(txtTaxMinSalary.Text, numberOnly) OrElse
+               Not Regex.IsMatch(txtTaxMaxSalary.Text, numberOnly) OrElse
+               Not Regex.IsMatch(txtTaxFixed.Text, numberOnly) OrElse
+               Not Regex.IsMatch(txtTaxPercentage.text, numberOnly) Then
+            MessageBox.Show("This contains number only.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        Else
+            Dim minSalary As Decimal = Convert.ToDecimal(txtTaxMinSalary.Text)
+            Dim maxSalary As Decimal = Convert.ToDecimal(txtTaxMaxSalary.Text)
+            Dim fixedAmount As Decimal = Convert.ToDecimal(txtTaxFixed.Text)
+            Dim percentage As Decimal = Convert.ToDecimal(txtTaxPercentage.Text)
+            NewTax(minSalary, maxSalary, fixedAmount, percentage)
+            Dim dtTax As DataTable = DisplayTax()
+            dgTaxContri.DataSource = dtTax
+            Dim maxSalaryOne As Decimal = TaxGetMaxSalary()
+            txtTaxMinSalary.Text = maxSalaryOne
+            txtTaxMaxSalary.Clear()
+            txtTaxFixed.Clear()
+            txtTaxPercentage.Clear()
+        End If
+    End Sub
 
+    Private Sub BtnSaveSSS_Click(sender As Object, e As EventArgs) Handles BtnSaveSSS.Click
+        If String.IsNullOrEmpty(txtSSSMinSalary.Text) OrElse
+                    String.IsNullOrEmpty(txtSSSMaximumSalary.Text) OrElse
+                    String.IsNullOrEmpty(txtSSSEE.Text) OrElse
+                    String.IsNullOrEmpty(txtSSSWisp.Text) OrElse
+                    String.IsNullOrEmpty(txtSSSTotal.Text) Then
+            MessageBox.Show("Please fill in the necessary fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+
+        ElseIf Not Regex.IsMatch(txtSSSMinSalary.text, numberOnly) OrElse
+                   Not Regex.IsMatch(txtSSSMaximumSalary.text, numberOnly) OrElse
+                   Not Regex.IsMatch(txtSSSEE.text, numberOnly) OrElse
+                   Not Regex.IsMatch(txtSSSWisp.text, numberOnly) OrElse
+                   Not Regex.IsMatch(txtSSSTotal.text, numberOnly) Then
+            MessageBox.Show("This contains number only.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        Else
+            NewSSS(Convert.ToDecimal(txtSSSMinSalary.Text), Convert.ToDecimal(txtSSSMaximumSalary.Text), Convert.ToDecimal(txtSSSEE.Text), Convert.ToDecimal(txtSSSWisp.Text), Convert.ToDecimal(txtSSSTotal.Text))
+            Dim dtSSS As DataTable = DisplaySSS()
+            dgSSSContri.DataSource = dtSSS
+            Dim sssMaxSalary As Decimal = SSSGetMaxSalary()
+            txtSSSMinSalary.Text = sssMaxSalary
+            txtSSSMaximumSalary.Clear()
+            txtSSSEE.Clear()
+            txtSSSWisp.Clear()
+            txtSSSTotal.Clear()
+        End If
+    End Sub
+
+    Private Sub BtnSavePagibig_Click(sender As Object, e As EventArgs) Handles BtnSavePagibig.Click
+        If String.IsNullOrEmpty(txtPagIbigRate.Text) Then
+            MessageBox.Show("Please fill in the necessary fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        ElseIf Not Regex.IsMatch(txtPagIbigRate.Text, numberOnly) Then
+            MessageBox.Show("This contains number only.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        Else
+            NewPagibig(txtPagIbigRate.Text)
+            Dim dtPagibig As DataTable = DisplayPagIbig()
+            dgPagibigContri.DataSource = dtPagibig
+            txtPagIbigRate.Clear()
+        End If
     End Sub
 End Class

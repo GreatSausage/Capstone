@@ -2,6 +2,8 @@
 Module MdlMaintenance
 
     Dim connection As New MySqlConnection("server=localhost;port=3306;user id=root;password=052903;database=dbmcpms")
+
+#Region "Department"
     Public Function DisplayDepartment() As DataTable
         Dim command As New MySqlCommand("SELECT * FROM tblDepartment", connection)
         Dim adapter As New MySqlDataAdapter(command)
@@ -21,6 +23,9 @@ Module MdlMaintenance
         connection.Close()
     End Sub
 
+#End Region
+
+#Region "Leave"
     Public Function DisplayLeave() As DataTable
         Dim command As New MySqlCommand("SELECT * FROM tblLeave", connection)
         Dim adapter As New MySqlDataAdapter(command)
@@ -40,6 +45,9 @@ Module MdlMaintenance
         connection.Close()
     End Sub
 
+#End Region
+
+#Region "Position"
     Public Function DisplayPosition() As DataTable
         Dim command As New MySqlCommand("SELECT * FROM tblPosition", connection)
         Dim adapter As New MySqlDataAdapter(command)
@@ -60,6 +68,9 @@ Module MdlMaintenance
         connection.Close()
     End Sub
 
+#End Region
+
+#Region "Incentives"
     Public Function DisplayIncentives() As DataTable
         Dim command As New MySqlCommand("SELECT * FROM tblIncentives", connection)
         Dim adapter As New MySqlDataAdapter(command)
@@ -79,6 +90,9 @@ Module MdlMaintenance
         connection.Close()
     End Sub
 
+#End Region
+
+#Region "Allowance"
     Public Function DisplayAllowance() As DataTable
         Dim command As New MySqlCommand("SELECT * FROM tblAllowance", connection)
         Dim adapter As New MySqlDataAdapter(command)
@@ -97,5 +111,87 @@ Module MdlMaintenance
         MessageBox.Show("Allowance added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         connection.Close()
     End Sub
+
+#End Region
+
+#Region "Contributions"
+
+    Public Function DisplayTax() As DataTable
+        Dim command As New MySqlCommand("SELECT * FROM tblTax", connection)
+        Dim datatable As New DataTable
+        Dim adapter As New MySqlDataAdapter(command)
+        adapter.Fill(datatable)
+        connection.Close()
+        Return datatable
+    End Function
+
+    Public Function TaxGetMaxSalary() As Decimal
+        connection.Open()
+        Dim command As New MySqlCommand("SELECT MAX(maxSalary) FROM tblTax", connection)
+        Dim max As Decimal = Convert.ToDecimal(command.ExecuteScalar())
+        max += 0.01
+        If command.ExecuteReader.HasRows Then
+            connection.Close()
+            Return max
+        Else
+            connection.Close()
+            Return 0
+        End If
+    End Function
+
+    Public Sub NewTax(minimumSalary As Decimal, maximumSalary As Decimal, fixedAmount As Decimal, percentage As Integer)
+        connection.Open()
+        Dim command As New MySqlCommand("INSERT INTO tblTax (minSalary, maxSalary, fixedAmount, percentage) 
+                                         VALUES (@minSalary, @maxSalary, @fixedAmount, @percentage)", connection)
+        With command.Parameters
+            .AddWithValue("@minSalary", minimumSalary)
+            .AddWithValue("@maxSalary", maximumSalary)
+            .AddWithValue("@fixedAmount", fixedAmount)
+            .AddWithValue("@percentage", percentage)
+        End With
+        command.ExecuteNonQuery()
+        MessageBox.Show("Tax added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        connection.Close()
+    End Sub
+
+    Public Function DisplaySSS() As DataTable
+        Dim command As New MySqlCommand("SELECT * FROM tblSSS", connection)
+        Dim datatable As New DataTable
+        Dim adapter As New MySqlDataAdapter(command)
+        adapter.Fill(datatable)
+        connection.Close()
+        Return datatable
+    End Function
+
+    Public Function SSSGetMaxSalary() As Decimal
+        connection.Open()
+        Dim command As New MySqlCommand("SELECT MAX(maxSalary) FROM tblsss", connection)
+        Dim max As Decimal = Convert.ToDecimal(command.ExecuteScalar())
+        max += 0.01
+        If command.ExecuteReader.HasRows Then
+            connection.Close()
+            Return max
+        Else
+            connection.Close()
+            Return 0
+        End If
+    End Function
+
+    Public Sub NewSSS(minSalary As Decimal, maxSalary As Decimal, EE As Decimal, wisp As Decimal, total As Decimal)
+        Dim command As New MySqlCommand("INSERT INTO tblSSS (minSalary, maxSalary, EE, wisp, total) 
+                                         VALUES (@minSalary, @maxSalary, @EE, @wisp, @total)", connection)
+        With command.Parameters
+            .AddWithValue("@minSalary", minSalary)
+            .AddWithValue("@maxSalary", maxSalary)
+            .AddWithValue("@EE", EE)
+            .AddWithValue("@wisp", wisp)
+            .AddWithValue("@total", total)
+        End With
+        command.ExecuteNonQuery()
+        MessageBox.Show("SSS added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        connection.Close()
+    End Sub
+
+#End Region
 
 End Module
