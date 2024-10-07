@@ -1,8 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 Module MdlMaintenance
 
-    Dim connection As New MySqlConnection("server=localhost;port=3306;user id=root;password=052903;database=dbmcpms")
-
+    'Dim connection As New MySqlConnection("server=localhost;port=3306;user id=root;password=052903;database=dbmcpms")
+    Dim connection As New MySqlConnection("server=localhost;port=3306;user id=capstoneproject;password=capstoneproject2024;database=dbmcpms")
 #Region "Department"
     Public Function DisplayDepartment() As DataTable
         Dim command As New MySqlCommand("SELECT * FROM tblDepartment", connection)
@@ -126,17 +126,17 @@ Module MdlMaintenance
     End Function
 
     Public Function TaxGetMaxSalary() As Decimal
-        connection.Open()
-        Dim command As New MySqlCommand("SELECT MAX(maxSalary) FROM tblTax", connection)
-        Dim max As Decimal = Convert.ToDecimal(command.ExecuteScalar())
-        max += 0.01
-        If command.ExecuteReader.HasRows Then
-            connection.Close()
-            Return max
+        Dim max As Decimal = 0
+        RunQuery("Select max(maxSalary) from tbltax")
+        If ds.Tables("querytable").Rows.Count > 0 Then
+            Dim result = ds.Tables("querytable").Rows(0)(0)
+            If Not IsDBNull(result) Then
+                max = Convert.ToDecimal(result) + 0.01
+            End If
         Else
-            connection.Close()
-            Return 0
+            max = 0
         End If
+        Return max
     End Function
 
     Public Sub NewTax(minimumSalary As Decimal, maximumSalary As Decimal, fixedAmount As Decimal, percentage As Integer)
@@ -163,21 +163,42 @@ Module MdlMaintenance
         Return datatable
     End Function
 
+    Public Function DisplayPagIbig() As DataTable
+        Dim command As New MySqlCommand("SELECT * FROM tblSSS", connection)
+        Dim datatable As New DataTable
+        Dim adapter As New MySqlDataAdapter(command)
+        adapter.Fill(datatable)
+        connection.Close()
+        Return datatable
+    End Function
     Public Function SSSGetMaxSalary() As Decimal
-        connection.Open()
-        Dim command As New MySqlCommand("SELECT MAX(maxSalary) FROM tblsss", connection)
-        Dim max As Decimal = Convert.ToDecimal(command.ExecuteScalar())
-        max += 0.01
-        If command.ExecuteReader.HasRows Then
-            connection.Close()
-            Return max
+        Dim max As Decimal = 0
+        RunQuery("Select max(maxSalary) from tblsss")
+        If ds.Tables("querytable").Rows.Count > 0 Then
+            Dim result = ds.Tables("querytable").Rows(0)(0)
+            If Not IsDBNull(result) Then
+                max = Convert.ToDecimal(result) + 0.01
+            End If
         Else
-            connection.Close()
-            Return 0
+            max = 0
         End If
+        Return max
     End Function
 
+    Public Sub NewPagibig(rate As Integer)
+        Dim command As New MySqlCommand("Insert into tblpagibig (rate,date)
+                                         VALUES (@rate,current_timestamp)", connection)
+        With command.Parameters
+            .AddWithValue("@rate", rate)
+        End With
+        command.ExecuteNonQuery()
+        MessageBox.Show("New Pag-Ibig rate updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        connection.Close()
+    End Sub
+
+
     Public Sub NewSSS(minSalary As Decimal, maxSalary As Decimal, EE As Decimal, wisp As Decimal, total As Decimal)
+        connection.Open()
         Dim command As New MySqlCommand("INSERT INTO tblSSS (minSalary, maxSalary, EE, wisp, total) 
                                          VALUES (@minSalary, @maxSalary, @EE, @wisp, @total)", connection)
         With command.Parameters
@@ -191,6 +212,8 @@ Module MdlMaintenance
         MessageBox.Show("SSS added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         connection.Close()
     End Sub
+
+
 
 #End Region
 

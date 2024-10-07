@@ -95,6 +95,7 @@
     <Compile Include="Forms\Others\FrmMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modules\MdlConnection.vb" />
     <Compile Include="Modules\MdlFunctions.vb" />
     <Compile Include="Modules\MdlMaintenance.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
