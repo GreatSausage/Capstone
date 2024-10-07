@@ -182,8 +182,7 @@ Public Class FrmMaintenance
             txtPagIbigRate.Clear()
         End If
     End Sub
-
-    Private Sub Guna2DateTimePicker2_ValueChanged(sender As Object, e As EventArgs)
+    Private Sub tabPositionManagement_Enter(sender As Object, e As EventArgs) Handles tabPositionManagement.Enter
 
     End Sub
 End Class

@@ -83,6 +83,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Employee Controls\FrmEmployeeControls.Designer.vb">
+      <DependentUpon>FrmEmployeeControls.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employee Controls\FrmEmployeeControls.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Maintenance\FrmMaintenance.Designer.vb">
       <DependentUpon>FrmMaintenance.vb</DependentUpon>
     </Compile>
@@ -116,6 +122,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Employee Controls\FrmEmployeeControls.resx">
+      <DependentUpon>FrmEmployeeControls.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Maintenance\FrmMaintenance.resx">
       <DependentUpon>FrmMaintenance.vb</DependentUpon>
     </EmbeddedResource>

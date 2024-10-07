@@ -32,3 +32,4 @@ C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.vbproj.CopyComplete
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.exe
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.xml
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.pdb
+C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone_Project.FrmEmployeeControls.resources

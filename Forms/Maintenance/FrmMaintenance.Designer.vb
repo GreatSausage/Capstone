@@ -99,6 +99,10 @@ Partial Class FrmMaintenance
         Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel109 = New System.Windows.Forms.Panel()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Panel116 = New System.Windows.Forms.Panel()
+        Me.Panel117 = New System.Windows.Forms.Panel()
+        Me.Panel118 = New System.Windows.Forms.Panel()
         Me.BtnSaveHoliday = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel21 = New System.Windows.Forms.Panel()
         Me.Panel122 = New System.Windows.Forms.Panel()
@@ -355,10 +359,6 @@ Partial Class FrmMaintenance
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.Panel116 = New System.Windows.Forms.Panel()
-        Me.Panel117 = New System.Windows.Forms.Panel()
-        Me.Panel118 = New System.Windows.Forms.Panel()
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.tabSalaryRates.SuspendLayout()
         CType(Me.DgSalaryRates, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel127.SuspendLayout()
@@ -790,6 +790,41 @@ Partial Class FrmMaintenance
         Me.Panel109.Name = "Panel109"
         Me.Panel109.Size = New System.Drawing.Size(225, 722)
         Me.Panel109.TabIndex = 3
+        '
+        'Label18
+        '
+        Me.Label18.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label18.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(0, 92)
+        Me.Label18.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(221, 20)
+        Me.Label18.TabIndex = 11
+        Me.Label18.Text = "Date"
+        '
+        'Panel116
+        '
+        Me.Panel116.Location = New System.Drawing.Point(8, 147)
+        Me.Panel116.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel116.Name = "Panel116"
+        Me.Panel116.Size = New System.Drawing.Size(207, 8)
+        Me.Panel116.TabIndex = 10
+        '
+        'Panel117
+        '
+        Me.Panel117.Location = New System.Drawing.Point(0, 91)
+        Me.Panel117.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel117.Name = "Panel117"
+        Me.Panel117.Size = New System.Drawing.Size(8, 64)
+        Me.Panel117.TabIndex = 9
+        '
+        'Panel118
+        '
+        Me.Panel118.Location = New System.Drawing.Point(215, 91)
+        Me.Panel118.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel118.Name = "Panel118"
+        Me.Panel118.Size = New System.Drawing.Size(10, 64)
+        Me.Panel118.TabIndex = 8
         '
         'BtnSaveHoliday
         '
@@ -4434,41 +4469,6 @@ Partial Class FrmMaintenance
         Me.Panel10.Name = "Panel10"
         Me.Panel10.Size = New System.Drawing.Size(225, 28)
         Me.Panel10.TabIndex = 0
-        '
-        'Panel116
-        '
-        Me.Panel116.Location = New System.Drawing.Point(8, 147)
-        Me.Panel116.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel116.Name = "Panel116"
-        Me.Panel116.Size = New System.Drawing.Size(207, 8)
-        Me.Panel116.TabIndex = 10
-        '
-        'Panel117
-        '
-        Me.Panel117.Location = New System.Drawing.Point(0, 91)
-        Me.Panel117.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel117.Name = "Panel117"
-        Me.Panel117.Size = New System.Drawing.Size(8, 64)
-        Me.Panel117.TabIndex = 9
-        '
-        'Panel118
-        '
-        Me.Panel118.Location = New System.Drawing.Point(215, 91)
-        Me.Panel118.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel118.Name = "Panel118"
-        Me.Panel118.Size = New System.Drawing.Size(10, 64)
-        Me.Panel118.TabIndex = 8
-        '
-        'Label18
-        '
-        Me.Label18.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label18.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(0, 92)
-        Me.Label18.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(221, 20)
-        Me.Label18.TabIndex = 11
-        Me.Label18.Text = "Date"
         '
         'FrmMaintenance
         '

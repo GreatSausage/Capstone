@@ -4,6 +4,7 @@ Module MdlMaintenance
     Dim connection As New MySqlConnection("server=localhost;port=3306;user id=root;password=052903;database=dbmcpms")
 #Region "Department"
     Public Function DisplayDepartment() As DataTable
+        connection.Open()
         Dim command As New MySqlCommand("SELECT * FROM tblDepartment", connection)
         Dim adapter As New MySqlDataAdapter(command)
         Dim datatable As New DataTable
