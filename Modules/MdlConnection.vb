@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 Module MdlConnection
-    Public conn As New MySqlConnection("server=localhost;user id=capstoneproject;password=capstoneproject2024;database=dbmcpms;port=3306")
+    Public conn As New MySqlConnection("server=localhost;user id=root;password=052903;database=dbmcpms;port=3306")
     Public ServerConn As New MySqlConnection
     Public com As New MySqlCommand
     Public adp As New MySqlDataAdapter

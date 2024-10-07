@@ -1,8 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Module MdlMaintenance
 
-    'Dim connection As New MySqlConnection("server=localhost;port=3306;user id=root;password=052903;database=dbmcpms")
-    Dim connection As New MySqlConnection("server=localhost;port=3306;user id=capstoneproject;password=capstoneproject2024;database=dbmcpms")
+    Dim connection As New MySqlConnection("server=localhost;port=3306;user id=root;password=052903;database=dbmcpms")
 #Region "Department"
     Public Function DisplayDepartment() As DataTable
         Dim command As New MySqlCommand("SELECT * FROM tblDepartment", connection)
