@@ -10,6 +10,7 @@ Public Class FrmMaintenance
         Dim dtTax As DataTable = DisplayTax()
         Dim dtSSS As DataTable = DisplaySSS()
         Dim dtPagibig As DataTable = DisplayPagIbig()
+        Dim dtPhilHealth As DataTable = DisplayPhilhealth()
         dgDepartment.DataSource = dtDepartment
         DgPosition.DataSource = dtPosition
         DgIncentives.DataSource = dtIncentive
@@ -20,6 +21,7 @@ Public Class FrmMaintenance
         dgTaxContri.DataSource = dtTax
         dgSSSContri.DataSource = dtSSS
         dgPagibigContri.DataSource = dtPagibig
+        dgPhilhealthContri.DataSource = dtPhilHealth
 
         Dim maxSalary As Decimal = TaxGetMaxSalary()
         txtTaxMinSalary.Text = maxSalary
@@ -156,7 +158,7 @@ Public Class FrmMaintenance
             MessageBox.Show("This contains number only.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         Else
-            NewSSS(Convert.ToDecimal(txtSSSMinSalary.Text), Convert.ToDecimal(txtSSSMaximumSalary.Text), Convert.ToDecimal(txtSSSEE.Text), Convert.ToDecimal(txtSSSWisp.Text), Convert.ToDecimal(txtSSSTotal.Text))
+            NewSSS(Convert.ToDecimal(txtSSSMinSalary.Text), Convert.ToDecimal(txtSSSMaximumSalary.Text), Convert.ToDecimal(txtSSSEE.Text), Convert.ToDecimal(txtSSSWisp.Text))
             Dim dtSSS As DataTable = DisplaySSS()
             dgSSSContri.DataSource = dtSSS
             Dim sssMaxSalary As Decimal = SSSGetMaxSalary()
@@ -184,5 +186,33 @@ Public Class FrmMaintenance
     End Sub
     Private Sub tabPositionManagement_Enter(sender As Object, e As EventArgs) Handles tabPositionManagement.Enter
 
+    End Sub
+
+    Private Sub txtSSSMaximumSalary_TextChanged(sender As Object, e As EventArgs) Handles txtSSSMaximumSalary.TextChanged
+        If String.IsNullOrEmpty(txtSSSMaximumSalary.Text) Then
+            txtSSSWisp.Enabled = False
+            Exit Sub
+        Else
+            Dim max As Integer = Convert.ToInt32(txtSSSMaximumSalary.Text)
+            If max < 20000 Then
+                txtSSSWisp.Enabled = False
+            Else
+                txtSSSWisp.Enabled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub BtnSavePhilHealth_Click(sender As Object, e As EventArgs) Handles BtnSavePhilHealth.Click
+        If String.IsNullOrEmpty(txtPhilhealthRate.Text) Then
+            MessageBox.Show("Please fill in the necessary fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        ElseIf Not Regex.IsMatch(txtPhilhealthRate.Text, numberOnly) Then
+            MessageBox.Show("This contains number only.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        Else
+            NewPhilhealth(Convert.ToInt32(txtPhilhealthRate.Text))
+            Dim dtPhilHealth As DataTable = DisplayPhilhealth()
+            dgPhilhealthContri.DataSource = dtPhilHealth
+        End If
     End Sub
 End Class

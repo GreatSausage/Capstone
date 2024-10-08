@@ -33,3 +33,21 @@ C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.exe
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.xml
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.pdb
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone_Project.FrmEmployeeControls.resources
+C:\Users\Clifford\source\repos\Capstone\bin\Debug\Capstone Project.exe.config
+C:\Users\Clifford\source\repos\Capstone\bin\Debug\Capstone Project.exe
+C:\Users\Clifford\source\repos\Capstone\bin\Debug\Capstone Project.pdb
+C:\Users\Clifford\source\repos\Capstone\bin\Debug\Capstone Project.xml
+C:\Users\Clifford\source\repos\Capstone\bin\Debug\Guna.UI2.dll
+C:\Users\Clifford\source\repos\Capstone\bin\Debug\MySql.Data.dll
+C:\Users\Clifford\source\repos\Capstone\bin\Debug\MySql.Data.xml
+C:\Users\Clifford\source\repos\Capstone\obj\Debug\Capstone Project.vbproj.AssemblyReference.cache
+C:\Users\Clifford\source\repos\Capstone\obj\Debug\Capstone_Project.FrmEmployeeControls.resources
+C:\Users\Clifford\source\repos\Capstone\obj\Debug\Capstone_Project.FrmMaintenance.resources
+C:\Users\Clifford\source\repos\Capstone\obj\Debug\Capstone_Project.FrmMain.resources
+C:\Users\Clifford\source\repos\Capstone\obj\Debug\Capstone_Project.Resources.resources
+C:\Users\Clifford\source\repos\Capstone\obj\Debug\Capstone Project.vbproj.GenerateResource.cache
+C:\Users\Clifford\source\repos\Capstone\obj\Debug\Capstone Project.vbproj.CoreCompileInputs.cache
+C:\Users\Clifford\source\repos\Capstone\obj\Debug\Capstone Project.vbproj.CopyComplete
+C:\Users\Clifford\source\repos\Capstone\obj\Debug\Capstone Project.exe
+C:\Users\Clifford\source\repos\Capstone\obj\Debug\Capstone Project.xml
+C:\Users\Clifford\source\repos\Capstone\obj\Debug\Capstone Project.pdb
