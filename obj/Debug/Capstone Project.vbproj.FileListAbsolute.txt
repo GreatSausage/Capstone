@@ -22,7 +22,7 @@ C:\Users\nikka\Desktop\Capstone\bin\Debug\Capstone Project.xml
 C:\Users\nikka\Desktop\Capstone\bin\Debug\Guna.UI2.dll
 C:\Users\nikka\Desktop\Capstone\bin\Debug\MySql.Data.dll
 C:\Users\nikka\Desktop\Capstone\bin\Debug\MySql.Data.xml
-C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.vbproj.AssemblyReference.cache
+C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone_Project.FrmEmployeeControls.resources
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone_Project.FrmMaintenance.resources
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone_Project.FrmMain.resources
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone_Project.Resources.resources
@@ -32,4 +32,3 @@ C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.vbproj.CopyComplete
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.exe
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.xml
 C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone Project.pdb
-C:\Users\nikka\Desktop\Capstone\obj\Debug\Capstone_Project.FrmEmployeeControls.resources

@@ -14,13 +14,11 @@ Public Class FrmMaintenance
         DgPosition.DataSource = dtPosition
         DgIncentives.DataSource = dtIncentive
         DgAllowance.DataSource = dtAllowance
-        dgManageAllowance.DataSource = dtAllowance
         dgLeave.DataSource = dtLeave
-        dgManageLeave.DataSource = dtLeave
         dgTaxContri.DataSource = dtTax
         dgSSSContri.DataSource = dtSSS
         dgPagibigContri.DataSource = dtPagibig
-
+        Load_department(cbDepartmentTwo)
         Dim maxSalary As Decimal = TaxGetMaxSalary()
         txtTaxMinSalary.Text = maxSalary
         Dim maxSalarySSS As Decimal = SSSGetMaxSalary()
@@ -182,7 +180,19 @@ Public Class FrmMaintenance
             txtPagIbigRate.Clear()
         End If
     End Sub
-    Private Sub tabPositionManagement_Enter(sender As Object, e As EventArgs) Handles tabPositionManagement.Enter
+    Private Sub CbDepartmentTwo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDepartmentTwo.SelectedIndexChanged
+        Load_position(cbDepartmentTwo, cbPosition)
+        Load_leave(cbPosition, dgManageLeave)
+    End Sub
 
+    Private Sub CbPosition_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbPosition.SelectedIndexChanged
+
+        If cbPosition.SelectedIndex >= 0 Then
+            Load_leave(cbPosition, dgManageLeave)
+        End If
+    End Sub
+
+    Private Sub BtnSaveManage_Click(sender As Object, e As EventArgs) Handles BtnSaveManage.Click
+        Update_Leave(dgManageLeave, cbPosition)
     End Sub
 End Class
