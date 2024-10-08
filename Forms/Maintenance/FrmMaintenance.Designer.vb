@@ -304,10 +304,6 @@ Partial Class FrmMaintenance
         Me.manageAmount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel43 = New System.Windows.Forms.Panel()
         Me.dgManageLeave = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.maximumLeave = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel25 = New System.Windows.Forms.Panel()
         Me.Panel39 = New System.Windows.Forms.Panel()
         Me.cbPosition = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -343,6 +339,7 @@ Partial Class FrmMaintenance
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Panel10 = New System.Windows.Forms.Panel()
+<<<<<<< HEAD
         Me.Panel82 = New System.Windows.Forms.Panel()
         Me.Panel103 = New System.Windows.Forms.Panel()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -350,6 +347,12 @@ Partial Class FrmMaintenance
         Me.Panel112 = New System.Windows.Forms.Panel()
         Me.Guna2DateTimePicker1 = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.TxtHolidayType = New Guna.UI2.WinForms.Guna2ComboBox()
+=======
+        Me.leaveID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.leaveType = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.days = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+>>>>>>> 6da93115b9c7c6d0482f6efb8e536b367de5aae2
         Me.tabSalaryRates.SuspendLayout()
         CType(Me.DgSalaryRates, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel127.SuspendLayout()
@@ -3685,7 +3688,7 @@ Partial Class FrmMaintenance
         DataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgManageLeave.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle46
         Me.dgManageLeave.ColumnHeadersHeight = 35
-        Me.dgManageLeave.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.maximumLeave})
+        Me.dgManageLeave.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.leaveID, Me.leaveType, Me.days, Me.status})
         DataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle47.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle47.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -3734,36 +3737,6 @@ Partial Class FrmMaintenance
         Me.dgManageLeave.ThemeStyle.RowsStyle.Height = 24
         Me.dgManageLeave.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgManageLeave.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "leaveID"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "leaveType"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Type of leave"
-        Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "status"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Status"
-        Me.DataGridViewTextBoxColumn6.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.Visible = False
-        '
-        'maximumLeave
-        '
-        Me.maximumLeave.HeaderText = "Maximum Leave"
-        Me.maximumLeave.MinimumWidth = 6
-        Me.maximumLeave.Name = "maximumLeave"
         '
         'Panel25
         '
@@ -4230,6 +4203,7 @@ Partial Class FrmMaintenance
         Me.Panel10.Size = New System.Drawing.Size(300, 34)
         Me.Panel10.TabIndex = 0
         '
+<<<<<<< HEAD
         'Panel82
         '
         Me.Panel82.Controls.Add(Me.TxtHolidayType)
@@ -4317,6 +4291,39 @@ Partial Class FrmMaintenance
         Me.TxtHolidayType.Name = "TxtHolidayType"
         Me.TxtHolidayType.Size = New System.Drawing.Size(271, 36)
         Me.TxtHolidayType.TabIndex = 10
+=======
+        'leaveID
+        '
+        Me.leaveID.DataPropertyName = "leaveID"
+        Me.leaveID.HeaderText = "ID"
+        Me.leaveID.MinimumWidth = 6
+        Me.leaveID.Name = "leaveID"
+        Me.leaveID.ReadOnly = True
+        '
+        'leaveType
+        '
+        Me.leaveType.DataPropertyName = "leaveType"
+        Me.leaveType.HeaderText = "Type of leave"
+        Me.leaveType.MinimumWidth = 6
+        Me.leaveType.Name = "leaveType"
+        Me.leaveType.ReadOnly = True
+        '
+        'days
+        '
+        Me.days.DataPropertyName = "days"
+        Me.days.HeaderText = "Maximum Leave"
+        Me.days.MinimumWidth = 6
+        Me.days.Name = "days"
+        '
+        'status
+        '
+        Me.status.DataPropertyName = "status"
+        Me.status.HeaderText = "Status"
+        Me.status.MinimumWidth = 6
+        Me.status.Name = "status"
+        Me.status.ReadOnly = True
+        Me.status.Visible = False
+>>>>>>> 6da93115b9c7c6d0482f6efb8e536b367de5aae2
         '
         'FrmMaintenance
         '
@@ -4552,10 +4559,6 @@ Partial Class FrmMaintenance
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
     Friend WithEvents manageAmount As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents maximumLeave As DataGridViewTextBoxColumn
     Friend WithEvents dgTaxContri As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents taxID As DataGridViewTextBoxColumn
     Friend WithEvents taxMinSalary As DataGridViewTextBoxColumn
@@ -4664,6 +4667,7 @@ Partial Class FrmMaintenance
     Friend WithEvents Panel133 As Panel
     Friend WithEvents Panel134 As Panel
     Friend WithEvents Panel123 As Panel
+<<<<<<< HEAD
     Friend WithEvents Panel82 As Panel
     Friend WithEvents TxtHolidayType As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Panel103 As Panel
@@ -4671,4 +4675,14 @@ Partial Class FrmMaintenance
     Friend WithEvents Panel111 As Panel
     Friend WithEvents Panel112 As Panel
     Friend WithEvents Guna2DateTimePicker1 As Guna.UI2.WinForms.Guna2DateTimePicker
+=======
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Panel116 As Panel
+    Friend WithEvents Panel117 As Panel
+    Friend WithEvents Panel118 As Panel
+    Friend WithEvents leaveID As DataGridViewTextBoxColumn
+    Friend WithEvents leaveType As DataGridViewTextBoxColumn
+    Friend WithEvents days As DataGridViewTextBoxColumn
+    Friend WithEvents status As DataGridViewTextBoxColumn
+>>>>>>> 6da93115b9c7c6d0482f6efb8e536b367de5aae2
 End Class

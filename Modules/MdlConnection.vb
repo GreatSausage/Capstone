@@ -14,6 +14,14 @@ Module MdlConnection
         Catch ex As Exception
         End Try
     End Sub
+    Public Sub CloseServerConnection()
+        Try
+            If conn.State = ConnectionState.Open Then
+                conn.Close()
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
     Public Sub RunQuery(ByVal querystatement As String)
         Try
             OpenServerConnection()
@@ -26,17 +34,11 @@ Module MdlConnection
             conn.Close()
         End Try
     End Sub
-    Public Sub RunCommand(ByVal commandstatement As String, ParamArray dynamicParameters() As MySqlParameter)
+    Public Sub RunCommand(ByVal commandstatement As String)
         Try
-            OpenServerConnection()
             com = New MySqlCommand(commandstatement, conn)
-            com.Parameters.AddRange(dynamicParameters)
-            com.ExecuteNonQuery()
-            com.Parameters.Clear()
         Catch ex As Exception
             MsgBox(ex.Message)
-        Finally
-            conn.Close()
         End Try
     End Sub
     Public Function RunScalar(ByVal scalarstatement As String)

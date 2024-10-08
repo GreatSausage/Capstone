@@ -300,7 +300,35 @@ Module MdlMaintenance
         connection.Close()
     End Sub
 #End Region
+#Region "Manage Positions"
+    Public Sub Load_department(cb As ComboBox)
+        RunQuery("Select * from tbldepartment where status = 'Active'")
+        If ds.Tables("querytable").Rows.Count > 0 Then
+            cb.ValueMember = "departmentID"
+            cb.DisplayMember = "departmentName"
+            cb.DataSource = ds.Tables("querytable")
+            cb.SelectedIndex = -1
+        End If
+    End Sub
+    Public Sub Load_position(deptcb As ComboBox, cbposition As ComboBox)
+        If deptcb.SelectedIndex >= 0 Then
+            Dim dept As String = deptcb.SelectedValue.ToString
+            RunQuery("Select * from tblposition WHERE departmentID='" & dept & "' and status='Active'")
+            If ds.Tables("querytable").Rows.Count > 0 Then
+                cbposition.ValueMember = "positionID"
+                cbposition.DisplayMember = "positionName"
+                cbposition.DataSource = ds.Tables("querytable")
+                cbposition.SelectedIndex = -1
+            Else
+                cbposition.DataSource = Nothing
+            End If
+        Else
+            Exit Sub
+        End If
+    End Sub
+    Public Sub Load_leave(cb As ComboBox, dg As DataGridView)
 
+<<<<<<< HEAD
 #Region "PhilHealth"
 
     Public Function DisplayPhilhealth() As DataTable
@@ -321,4 +349,68 @@ Module MdlMaintenance
 #End Region
 
 #End Region
+=======
+        If cb.SelectedIndex = -1 Then
+            RunQuery("Select a.leaveID, a.leaveType,  from tblleave a 
+                      LEFT JOIN tbljobleave b on b.leaveID = a.leaveID
+                      WHERE a.status = 'Active'")
+            dg.DataSource = ds.Tables("querytable")
+        Else
+            Dim positionID As String = cb.SelectedValue.ToString()
+            RunQuery("Select * from tbljobleave where positionID='" & positionID & "'")
+            If ds.Tables("querytable").Rows.Count > 0 Then
+
+                RunQuery("Select a.leaveID, a.leaveType, b.days from tblleave a LEFT JOIN 
+                          tbljobleave b on b.leaveID = a.leaveID and b.positionID = '" & positionID & "' 
+                          WHERE a.status = 'Active' and b.positionID = '" & positionID & "'")
+                dg.DataSource = ds.Tables("querytable")
+            Else
+
+                RunQuery("Select a.leaveID, a.leaveType, b.days from tblleave a LEFT JOIN 
+                          tbljobleave b on b.leaveID = a.leaveID
+                          WHERE a.status = 'Active'")
+                dg.DataSource = ds.Tables("querytable")
+
+            End If
+        End If
+
+
+
+        'If cb.SelectedIndex = -1 Then
+        '    RunQuery("Select a.leaveID, a.leaveType, b.day from tblleave a
+        '              left join
+        '              tbljobleave b on b.leaveID = a.leaveID and ")
+        'Else
+        '    Dim positionID As String = cb.SelectedValue.ToString()
+        '    RunQuery("Select a.leaveID, a.leaveType,b.days from tblleave a 
+        '              left join
+        '              tbljobleave b on b.leaveID = a.leaveID and b.positionID = '" & positionID & "'
+        '              WHERE a.status = 'Active' and b.positionID = '" & positionID & "'")
+        '    If ds.Tables("querytable").Rows.Count > 0 Then
+        '        dg.DataSource = ds.Tables("querytable")
+        '    End If
+        'End If
+    End Sub
+
+    Public Sub Update_Leave(dg As DataGridView, cb As ComboBox)
+        For Each row As DataGridViewRow In dg.Rows
+            OpenServerConnection()
+            Dim positionID As Integer = cb.SelectedValue
+            Dim leaveID As Integer = row.Cells("leaveID").Value
+            Dim days As Integer = If(String.IsNullOrEmpty(row.Cells("days").Value.ToString), 0, Convert.ToInt32(row.Cells("days").Value))
+            RunCommand("Insert into tbljobleave (positionID,leaveID,days) VALUES (@positionID,@leaveID,@days) 
+                        ON DUPLICATE KEY UPDATE
+                        days = @days")
+            With com.Parameters
+                .AddWithValue("@positionID", positionID)
+                .AddWithValue("@leaveID", leaveID)
+                .AddWithValue("@days", days)
+            End With
+            com.ExecuteNonQuery()
+            com.Parameters.Clear()
+            CloseServerConnection()
+        Next
+    End Sub
+#End Region
+>>>>>>> 6da93115b9c7c6d0482f6efb8e536b367de5aae2
 End Module
