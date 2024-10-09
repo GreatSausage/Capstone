@@ -1,0 +1,8 @@
+CREATE TABLE `tbljobleave` (
+  `jobleaveID` int NOT NULL AUTO_INCREMENT,
+  `positionID` int NOT NULL,
+  `leaveID` int NOT NULL,
+  `days` int NOT NULL,
+  PRIMARY KEY (`jobleaveID`),
+  UNIQUE KEY `unique leave and position` (`positionID`,`leaveID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
